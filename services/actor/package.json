@@ -1,0 +1,17 @@
+{
+  "name": "actor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npm-force-resolutions",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/federation": "^0.38.1",
+    "apollo-server": "^3.12.0",
+    "graphql": "^16.6.0"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "federation-stitching",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npm-force-resolutions",
+    "start-stitched": "concurrently \"ts-node ./02.stitched.gateway.ts\" \"npm:start:rating\"",
+    "start-federated": "concurrently \"npm:start:*\"",
+    "dev-stitched": "nodemon --watch \"./**\" --ext \"ts,json\" --exec \"npm run start-stitched\"",
+    "dev-federated": "nodemon --watch \"./**\" --ext \"ts,json\" --exec \"npm run start-federated\"",
+    "start:gateway": "ts-node ./01.federated.gateway.ts",
+    "start:movie": "ts-node ./services/movie/index.federated.ts",
+    "start:actor": "ts-node ./services/actor/index.federated.ts",
+    "start:cast": "ts-node ./services/cast/index.federated.ts",
+    "start:rating": "ts-node ./services/rating/index.rest.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/wait-on": "^5.3.1",
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.21",
+    "npm-force-resolutions": "^0.0.10",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "@apollo/federation": "^0.38.1",
+    "@apollo/gateway": "^2.3.4",
+    "@graphql-tools/batch-delegate": "^8.4.21",
+    "@graphql-tools/delegate": "^9.0.28",
+    "@graphql-tools/schema": "^9.0.17",
+    "@graphql-tools/stitch": "^8.7.43",
+    "@graphql-tools/wrap": "^9.3.8",
+    "apollo-server": "^3.12.0",
+    "graphql": "^16.6.0",
+    "wait-on": "^7.0.1"
+  },
+  "resolutions": {
+    "graphql": "16.6.0"
+  }
+}
